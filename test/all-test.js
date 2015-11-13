@@ -34,6 +34,14 @@ describe('to-php-array', function () {
             assert.ok(parsePhp(new Date(1987, 7, 10), 'date'));
         });
 
+        it('should return number when Function', function () {
+            var fun = function(){};
+            fun.toString = function(){
+                return 'FUNC0x0810';
+            };
+            assert.ok(parsePhp(fun, 'function'));
+        });
+
         it('should return string when String', function () {
             assert.ok(parsePhp("'\"[]150&*^#$\\", 'string'));
         });

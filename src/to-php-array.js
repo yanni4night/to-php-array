@@ -41,7 +41,7 @@ function js2php(obj, indent) {
     } else if (obj.constructor === RegExp) {
         return js2php(obj.source, indent);
     } else if (obj.constructor === String) {
-        return '\'' + obj.replace(/\\/mg,'\\\\').replace(/'/mg, '\\\'') + '\'';
+        return '\'' + obj.replace(/\\/mg, '\\\\').replace(/'/mg, '\\\'') + '\'';
     } else if (Array.isArray(obj)) {
         var ret = [];
         for (var i = 0; i < obj.length; ++i) {
@@ -51,7 +51,7 @@ function js2php(obj, indent) {
         }
         return 'array(\n' + indentSpace + ret.join(',\n' + indentSpace) + '\n' + ')';
     } else if ('function' === typeof obj) {
-        return '';
+        return js2php(obj.toString(), indent);
     } else {
         ret = [];
         for (var e in obj) {
@@ -59,7 +59,6 @@ function js2php(obj, indent) {
                 ret.push('\'' + e + '\' => ' + js2php(obj[e], nextIndext));
             }
         }
-
         return 'array(\n' + indentSpace + ret.join(',\n' + indentSpace) + '\n' + ')';
     }
 }
