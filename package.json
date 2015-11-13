@@ -1,29 +1,35 @@
 {
-  "name": "to-php-array",
-  "version": "1.0.0",
-  "description": "Convert js object to php array",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "./node_modules/.bin/mocha test/*-test.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yanni4night/to-php-array.git"
-  },
-  "keywords": [
-    "php",
-    "array"
-  ],
-  "author": "yanni4night@gmail.com",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/yanni4night/to-php-array/issues"
-  },
-  "homepage": "https://github.com/yanni4night/to-php-array#readme",
-  "devDependencies": {
-    "mocha": "^2.3.3"
-  }
+    "name": "to-php-array",
+    "version": "1.0.0",
+    "description": "Convert js object to php array",
+    "main": "index.js",
+    "bin": {
+        "to-php-array": "bin/cli.js"
+    },
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "./node_modules/.bin/mocha test/*-test.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yanni4night/to-php-array.git"
+    },
+    "keywords": [
+        "php",
+        "array"
+    ],
+    "author": "yanni4night@gmail.com",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/yanni4night/to-php-array/issues"
+    },
+    "homepage": "https://github.com/yanni4night/to-php-array#readme",
+    "devDependencies": {
+        "mocha": "^2.3.3"
+    },
+    "dependencies": {
+        "commander": "^2.9.0"
+    }
 }
