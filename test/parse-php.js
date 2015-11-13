@@ -12,14 +12,9 @@
 
 var toPHP = require('../');
 
-function compare(a,b){
-
-}
-
-module.exports = function () {
-    var phpCode = toPHP.apply(null, arguments);
-    require('fs').writeFileSync('tmp.php', '<?php return ' + phpCode + ';?>');
-    var ret = JSON.parse(require('child_process').execSync('php ' + __dirname + '/echo.php'));
-    console.log(ret);
-    return ret;
+module.exports = function (variable, checker, indent) {
+    var phpCode = toPHP(variable, indent);
+    require('fs').writeFileSync(__dirname + '/tmp.php', '<?php return ' + phpCode + ';?>');
+    var ret = require('child_process').execSync('php ' + __dirname + '/' + checker + '.php').toString();
+    return ret === '1';
 };

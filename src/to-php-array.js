@@ -24,24 +24,24 @@ function js2php(obj, indent) {
     if (indent < 0) {
         indent = 0;
     }
-    
+
     var indentSpace = repeat(' ', indent);
     var nextIndext = indent + 4;
 
-    if (null == obj) {
+    if (null === obj || undefined === obj) {
         return 'NULL';
     } else if (true === obj) {
         return 'True';
     } else if (false === obj) {
         return 'False';
-    } else if ('number' === typeof obj || obj.constructor === Number) {
+    } else if (obj.constructor === Number) {
         return Number(obj);
     } else if (obj.constructor === Date) {
         return +obj / 1e3 | 0;
     } else if (obj.constructor === RegExp) {
-        return obj.toString();
+        return js2php(obj.source, indent);
     } else if (obj.constructor === String) {
-        return '\'' + obj + '\'';
+        return '\'' + obj.replace(/\\/mg,'\\\\').replace(/'/mg, '\\\'') + '\'';
     } else if (Array.isArray(obj)) {
         var ret = [];
         for (var i = 0; i < obj.length; ++i) {
