@@ -1,0 +1,7 @@
+language: node_js
+sudo: false # this opts into the container-base infrastructure that has no sudo commnand avaliable, but runs much faster
+node_js:
+  - "0.10" 
+  - "0.12"
+  - "4.0"
+  - stable
