@@ -1,5 +1,9 @@
 language: node_js
 sudo: false # this opts into the container-base infrastructure that has no sudo commnand avaliable, but runs much faster
+php:
+  - "5.4"
+  - "5.5"
+  - hhvm
 node_js:
   - "0.10" 
   - "0.12"
