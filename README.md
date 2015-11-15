@@ -1,5 +1,7 @@
 # to-php-array
 
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
+
 Parse json to php
 
 # usage
@@ -21,3 +23,9 @@ Or:
 # test
 
     npm test
+
+
+[npm-url]: https://npmjs.org/package/to-php-array
+[npm-image]: http://img.shields.io/npm/v/to-php-array.svg
+[travis-url]: https://travis-ci.org/yanni4night/to-php-array
+[travis-image]: http://img.shields.io/travis/yanni4night/to-php-array.svg
